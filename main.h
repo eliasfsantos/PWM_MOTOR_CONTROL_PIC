@@ -1,5 +1,5 @@
 #include <16F877A.h>
-#device adc=16
+#device adc=8
 
 #FUSES NOWDT                 	//No Watch Dog Timer
 #FUSES XT                    	//Crystal osc <= 4mhz
@@ -9,7 +9,7 @@
 #FUSES NOBROWNOUT            	//No brownout reset
 #FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
 #FUSES NOCPD                 	//No EE protection
-#FUSES WRT_50%               	//Lower half of Program Memory is Write Protected
+#FUSES NOWRT                 	//Program memory not write protected
 
 #use delay(clock=4000000)
 

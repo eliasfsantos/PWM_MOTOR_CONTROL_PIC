@@ -1,2 +1,5 @@
-      Memory usage:   ROM=1%      RAM=2% - 2%
-      0 Errors,  0 Warnings.
+*** Error 12 "main.c" Line 21(21,25): Undefined identifier   duty
+*** Error 12 "main.c" Line 22(21,25): Undefined identifier   duty
+*** Error 12 "main.c" Line 23(21,25): Undefined identifier   duty
+*** Error 12 "main.c" Line 24(35,39): Undefined identifier   duty
+      4 Errors,  0 Warnings.
