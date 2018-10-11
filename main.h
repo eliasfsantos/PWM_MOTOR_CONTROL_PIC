@@ -1,8 +1,8 @@
 #include <16F877A.h>
-#device adc=8
+#device adc=16
 
 #FUSES NOWDT                 	//No Watch Dog Timer
-#FUSES HS                    	//High speed Osc (> 4mhz)
+#FUSES XT                    	//Crystal osc <= 4mhz
 #FUSES NOPUT                 	//No Power Up Timer
 #FUSES NOPROTECT             	//Code not protected from reading
 #FUSES NODEBUG               	//No Debug mode for ICD
