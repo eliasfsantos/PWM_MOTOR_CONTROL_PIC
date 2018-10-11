@@ -1,39 +1,42 @@
 #include <16F877A.h>
-#device adc=8
+#device adc=16
 
-#FUSES NOWDT                 	//No Watch Dog Timer
-#FUSES XT                    	//Crystal osc <= 4mhz
-#FUSES NOPUT                 	//No Power Up Timer
-#FUSES NOPROTECT             	//Code not protected from reading
-#FUSES NODEBUG               	//No Debug mode for ICD
-#FUSES NOBROWNOUT            	//No brownout reset
-#FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
-#FUSES NOCPD                 	//No EE protection
-#FUSES NOWRT                 	//Program memory not write protected
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES XT                       //Crystal osc <= 4mhz
+#FUSES NOPUT                    //No Power Up Timer
+#FUSES NOPROTECT                //Code not protected from reading
+#FUSES NODEBUG                  //No Debug mode for ICD
+#FUSES NOBROWNOUT               //No brownout reset
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+#FUSES NOCPD                    //No EE protection
+#FUSES WRT_50%                  //Lower half of Program Memory is Write Protected
 
 #use delay(clock=4000000)
 
 
-void main ()
+
+void main()
 {
-     setup_ADC_ports(ALL_ANALOG);   
-     setup_adc(adc_clock_div_4);               
-     delay_us(15);
-     setup_timer_2(T2_DIV_BY_4,255,1); 
-                                                                  
-     setup_ccp1(CCP_PWM);       
-     set_tris_a(0b11111111);       
-     set_tris_b(0b00000000);
-     set_tris_c(0b00000000);
-     set_tris_d(0b00000000);
-     set_tris_e(0b00000000);
-             while (TRUE)
-            {
-                    set_adc_channel(0);   
-                    delay_us(100);       
-                    duty=read_adc(); 
-                    duty=duty*1000;
-                    duty=duty/1023;
-                    set_pwm1_duty(duty);
-             }; 
+
+   setup_adc_ports(AN0_AN1_AN3);
+   setup_adc(ADC_CLOCK_INTERNAL);
+   setup_psp(PSP_DISABLED);
+   setup_spi(SPI_SS_DISABLED);
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);
+   setup_timer_1(T1_DISABLED);
+   setup_timer_2(T2_DIV_BY_1,199,1);
+   setup_ccp1(CCP_PWM);
+   set_pwm1_duty(400);
+   setup_comparator(NC_NC_NC_NC);
+   setup_vref(FALSE);
+
+   // TODO: USER CODE!!
+
+	while(1){
+		set_adc_channel(2);
+		delay_us(50);
+		value = read_adc();
+		
+	}
+
 }

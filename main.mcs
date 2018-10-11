@@ -5,13 +5,22 @@ Version=1.0
 Location=main.ESYM
 Folder=Intermediary
 [File001]
-Location=C:\Users\Elias\Dropbox\PROJETOS\PWM - controle de motor DC\v1.0 - 16f676\main.o
+Location=C:\Users\Elias\Dropbox\PROJETOS\PWM - controle de motor DC\v2.0 - 16f877a\main.o
 Folder=Intermediary
 [File002]
-Location=main.PJT
+Location=main.HEX
 Folder=Output
 [File003]
+Location=main.LST
+Folder=Output
+[File004]
+Location=main.PJT
+Folder=Output
+[File005]
 Location=main.ERR
+Folder=Output
+[File006]
+Location=main.COF
 Folder=Output
 [TOOL_LOC_STAMPS]
 tool_loc{0C155615-B197-4A4B-AEB6-343BB3F41A35}=C:\Arquivos de programas\PICC\Ccsc.exe
