@@ -1,8 +1,8 @@
 #include <16F877A.h>
-#device adc=8
+#device adc=16
 
 #FUSES NOWDT                    //No Watch Dog Timer
-#FUSES XT                       //High speed Osc (> 4mhz)
+#FUSES XT                       //Crystal osc <= 4mhz
 #FUSES NOPUT                    //No Power Up Timer
 #FUSES NOPROTECT                //Code not protected from reading
 #FUSES NODEBUG                  //No Debug mode for ICD
@@ -14,23 +14,29 @@
 #use delay(clock=4000000)
 
 
+
 void main()
 {
 
-   setup_adc_ports(NO_ANALOGS);
-   setup_adc(ADC_OFF);
+   setup_adc_ports(AN0_AN1_AN3);
+   setup_adc(ADC_CLOCK_INTERNAL);
    setup_psp(PSP_DISABLED);
    setup_spi(SPI_SS_DISABLED);
    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);
    setup_timer_1(T1_DISABLED);
-   setup_timer_2(T2_DIV_BY_1,0xFF,1);
+   setup_timer_2(T2_DIV_BY_1,199,1);
    setup_ccp1(CCP_PWM);
-   set_pwm1_duty(100);//400);
+   set_pwm1_duty(400);
    setup_comparator(NC_NC_NC_NC);
    setup_vref(FALSE);
 
    // TODO: USER CODE!!
-	while(TRUE){
-	
-}
+
+	while(1){
+		set_adc_channel(2);
+		delay_us(50);
+		value = read_adc();
+		
+	}
+
 }

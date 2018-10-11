@@ -24,7 +24,7 @@ ROM Allocation:
 0004  @cinit
 
 Project Directory:
-    C:\Users\Elias\Dropbox\PROJETOS\PWM - controle de motor DC\v2.1 - only pwm\
+    C:\Users\Elias\Dropbox\PROJETOS\PWM - controle de motor DC\v2.0 - 16f877a\
 
 Project Files:
     main.c
@@ -36,7 +36,7 @@ Units:
 Compiler Settings:
     Processor:      PIC16F877A
     Pointer Size:   16
-    ADC Range:      0-255
+    ADC Range:      0-65535
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
